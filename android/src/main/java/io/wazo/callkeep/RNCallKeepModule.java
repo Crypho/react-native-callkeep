@@ -254,9 +254,10 @@ public class RNCallKeepModule extends ReactContextBaseJavaModule {
         }
 
         boolean hasSim = telephonyManager.getSimState() != TelephonyManager.SIM_STATE_ABSENT;
-        boolean hasDefaultAccount = telecomManager.getDefaultOutgoingPhoneAccount("tel") != null;
-
-        promise.resolve(!hasSim || hasDefaultAccount);
+        // **** Cause we dont want to use Phone Call Permission so we don't need to check defaultOutGoingPhoneAccount here
+        //boolean hasDefaultAccount = telecomManager.getDefaultOutgoingPhoneAccount("tel") != null;
+        //promise.resolve(!hasSim || hasDefaultAccount);
+        promise.resolve(!hasSim);
     }
 
     @ReactMethod
