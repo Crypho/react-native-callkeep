@@ -191,22 +191,7 @@ class RNCallKeep {
     if (!condition) {
       return resolve(false);
     }
-
-    Alert.alert(
-      options.alertTitle,
-      options.alertDescription,
-      [
-        {
-          text: options.cancelButton,
-          onPress: reject,
-          style: 'cancel',
-        },
-        { text: options.okButton,
-          onPress: () => resolve(true)
-        },
-      ],
-      { cancelable: true },
-    );
+    resolve(true)
   });
 
   backToForeground() {
